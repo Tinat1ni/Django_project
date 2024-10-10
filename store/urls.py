@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import store_view, second_store_view
+from .views import category_list, product_list
 
 urlpatterns = [
-    path('', store_view, name = 'store_main'),
-    path('specific', second_store_view, name = 'store_specific')
+    path('product/', product_list, name = 'product_list'),
+    path('category/', category_list, name = 'category_list')
 ]
+
