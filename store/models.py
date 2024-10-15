@@ -17,7 +17,7 @@ class Product(models.Model):
     price = models.FloatField()
     quantity = models.IntegerField()
     image = models.ImageField(upload_to='products/', null=True, blank=True)
-    categories = models.ManyToManyField(Category)
+    categories = models.ManyToManyField(Category, related_name='products')
 
     def __str__(self):
         return self.name

@@ -1,8 +1,13 @@
 from django.urls import path
-from .views import category_list, product_list
+from django.conf import settings
+from django.conf.urls.static import static
+from .views import category_list, category_products, product_details
 
 urlpatterns = [
-    path('product/', product_list, name = 'product_list'),
-    path('category/', category_list, name = 'category_list')
+    path('category/', category_list, name='category_list'),
+    path('category/<int:category_id>/products/', category_products, name='category_products'),
+    path('product/<int:product_id>/', product_details, name='product_details'),
+
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,10 @@
+<h1> Top Categories </h1>
+<ul>
+    {% for category in top_level_categories %}
+        <li>
+            <a href="{% url 'category_products' category.id %}">{{ category.name }}</a>
+               {{ category.products_in_category }} products
+        </li>
+    {% endfor %}
+
+</ul>

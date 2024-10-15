@@ -1,0 +1,17 @@
+<h1>{{ category.name }}</h1>
+
+<h2>products</h2>
+<ul>
+    {% for product in products %}
+        <li>
+            <a href="{% url 'product_details' product.id %}">{{ product.name }}</a> -
+            total value: {{ product.total_value }}
+        </li>
+    {% endfor %}
+</ul>
+
+<h1>statistics</h1>
+<p>cheapest: {{ cheapest }}</p>
+<p>most expensive: {{ most_expensive }}</p>
+<p>average price: {{ average_price }}</p>
+<p>total value of products: {{ total_value }}</p>
