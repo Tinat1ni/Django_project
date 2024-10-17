@@ -1,13 +1,12 @@
 from django.db import models
+from user.models import User
 
-class Order(models.Model):
-    id = models.IntegerField(primary_key=True)
-    customer_name = models.CharField(max_length=30)
-    total_amount = models.FloatField()
-    customer_adress = models.CharField(max_length=100)
+class UserCart(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.id, self.customer_name, self.total_amount
+        return f"{self.user.username}'s cart"
 
 
 
